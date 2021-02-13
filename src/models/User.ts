@@ -5,7 +5,7 @@ import * as argon2 from 'argon2'
 
 const Schema = mongoose.Schema
 
-export interface User extends mongoose.Document {
+export interface UserInterface extends mongoose.Document {
   email: string
   password: string
   firstName: string
@@ -36,4 +36,4 @@ UserSchema.pre('save', async function(next: mongoose.HookNextFunction) {
   user.password = hashedPassword
 })
 
-export default mongoose.model<User>('User', UserSchema)
+export default mongoose.model<UserInterface>('User', UserSchema)

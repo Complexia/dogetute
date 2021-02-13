@@ -1,0 +1,1 @@
+{"version":3,"file":"validate-token.js","sourceRoot":"","sources":["../../../src/middlewares/validate-token.ts"],"names":[],"mappings":";;;AAAA,6CAA4C;AAC5C,sCAA8B;AASvB,MAAM,aAAa,GAAG,CAAC,KAAa,EAAoB,EAAE;IAC/D,OAAO,YAAY,CAAC,MAAM,CAAC,KAAK,EAAE,gBAAM,CAAC,SAAS,CAAqB,CAAA;AACzE,CAAC,CAAA;AAFY,QAAA,aAAa,iBAEzB"}

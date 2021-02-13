@@ -1,8 +1,9 @@
 import * as yup from 'yup'
 import * as argon2 from 'argon2'
 
-import User from '@local/models/User'
+import User from '../models/User'
 
+//User input validation
 export const registerRules = yup.object().shape({
   email: yup
     .string()

@@ -1,5 +1,5 @@
 import * as jsonwebtoken from 'jsonwebtoken'
-import config from '@local/config'
+import config from '../config'
 
 type ValidateResponse = {
   id: string
