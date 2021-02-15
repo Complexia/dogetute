@@ -5,7 +5,7 @@ let db: mongoose.Connection
 let uri = "mongodb+srv://remidogetute:butbeforetoolongtheywerethinkingintermsofwavefunctions@dogetutev1mongo.gcxg3.mongodb.net/development?retryWrites=true&w=majority"
 export const connectDb = () => {
   mongoose
-    .connect(uri, {
+    .connect(config.serverDatabase!, {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true,

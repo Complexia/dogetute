@@ -16,8 +16,6 @@ UserSchema.pre('save', async function (next) {
         next();
     }
     let hashedPassword = await argon2.hash(user.password);
-    console.log("model", user.password);
-    console.log("model2", hashedPassword);
     user.password = hashedPassword;
 });
 exports.default = mongoose.model('User', UserSchema);
