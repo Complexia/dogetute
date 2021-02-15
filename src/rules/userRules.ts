@@ -1,5 +1,6 @@
 import * as yup from 'yup'
-import * as argon2 from 'argon2'
+import * as argon2 from 'argon2';
+
 
 import User from '../models/User'
 
@@ -79,12 +80,16 @@ export const loginRules = yup.object().shape({
     .when('email', (email: string, schema: any) =>
       schema.test({
         test: async (password: string) => {
-          const user = await User.findOne({ email })
-          let hashedPassword = await argon2.hash(password)
           let valid = false
-          if (hashedPassword == user!.password) {
-              valid = true
+          const user = await User.findOne({ email })
+          if(!user) {
+            return valid
           }
+                   
+          let hashedPassword = await argon2.hash(password)
+          
+          
+          valid = await argon2.verify(user.password, password)
           
           return valid
         },

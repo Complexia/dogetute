@@ -33,6 +33,7 @@ UserSchema.pre('save', async function(next: mongoose.HookNextFunction) {
   }
 
   let hashedPassword = await argon2.hash(user.password)
+  
   user.password = hashedPassword
 })
 

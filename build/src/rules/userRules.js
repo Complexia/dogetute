@@ -55,12 +55,13 @@ exports.loginRules = yup.object().shape({
         .matches(/[a-zA-Z0-9@!#%]/, 'Password can only contain Latin letters, numbers and/or [@, !, #, %].')
         .when('email', (email, schema) => schema.test({
         test: async (password) => {
-            const user = await User_1.default.findOne({ email });
-            let hashedPassword = await argon2.hash(password);
             let valid = false;
-            if (hashedPassword == user.password) {
-                valid = true;
+            const user = await User_1.default.findOne({ email });
+            if (!user) {
+                return valid;
             }
+            let hashedPassword = await argon2.hash(password);
+            valid = await argon2.verify(user.password, password);
             return valid;
         },
         message: 'Invalid password',
