@@ -1,10 +1,22 @@
-export const Booking = (): any => {
+import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, CreateDateColumn, UpdateDateColumn} from "typeorm";
 
-    const createBooking = (): any => {
 
-    }
+@Entity("bookings")
+export class Booking extends BaseEntity {
 
-    return {
-        createBooking: createBooking
-    }
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @CreateDateColumn()
+    created_at: Date;
+
+    @UpdateDateColumn()
+    updated_at: Date;
+
+    @Column()
+    username: string;
+
+    @Column(({ nullable: true }))
+    password: string;
+
 }
