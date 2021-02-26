@@ -34,20 +34,26 @@ declare namespace GQL {
     __typename: 'User';
     email: string;
     password: string;
+    firstName: string;
+    lastName: string | null;
     username: string | null;
   }
 
   interface IMutation {
     __typename: 'Mutation';
-    register: IUser;
+    register: IUser | null;
     login: IUser | null;
   }
 
   interface IRegisterOnMutationArguments {
     email: string;
     password: string;
+    firstName: string;
+    lastName?: string | null;
     username?: string | null;
   }
+
+  
 
   interface ILoginOnMutationArguments {
     email: string;

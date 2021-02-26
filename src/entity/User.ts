@@ -8,10 +8,10 @@ export class User extends BaseEntity {
     id: number;
 
     @CreateDateColumn()
-    created_at: Date;
+    created_at: Date = new Date();
 
     @UpdateDateColumn()
-    updated_at: Date;
+    updated_at: Date = new Date();
 
     @Column()
     email: string;
@@ -19,8 +19,30 @@ export class User extends BaseEntity {
     @Column()
     password: string;
 
+    @Column()
+    firstName: string;
+
     @Column(({ nullable: true }))
-    username: string;
+    lastName?: string;
+
+    @Column(({ nullable: true }))
+    username: string | null;
     
 
 }
+
+
+
+// import {Entity, Column, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
+
+// @Entity()
+// export class User {
+
+//     @PrimaryGeneratedColumn()
+//     id: number;
+
+//     @Column()
+//     username: string;
+
+    
+// }

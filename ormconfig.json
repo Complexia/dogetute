@@ -4,7 +4,7 @@
     "port": 5432,
     "username": "remi",
     "password": "postgres",
-    "database": "dogetute-db",
+    "database": "terra-db",
     "synchronize": true,
     "logging": false,
     "entities": [
