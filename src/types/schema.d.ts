@@ -41,8 +41,8 @@ declare namespace GQL {
 
   interface IMutation {
     __typename: 'Mutation';
-    register: IUser | null;
-    login: IUser | null;
+    register: IUser;
+    login: IReturnValueLoginRegister | null;
   }
 
   interface IRegisterOnMutationArguments {
@@ -53,11 +53,21 @@ declare namespace GQL {
     username?: string | null;
   }
 
-  
-
   interface ILoginOnMutationArguments {
     email: string;
     password: string;
+  }
+
+  interface IReturnValueLoginRegister {
+    __typename: 'ReturnValueLoginRegister';
+    user: IUser | null;
+    error: IError | null;
+  }
+
+  interface IError {
+    __typename: 'Error';
+    field: string;
+    message: string;
   }
 }
 

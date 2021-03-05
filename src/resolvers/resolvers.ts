@@ -16,6 +16,13 @@ export const resolvers = {
             return user
         },
 
+        login: async (_: any, { email, password }: GQL.ILoginOnMutationArguments) => {
+            
+            const userModel = UserModel()
+            const userOrError = await userModel.login(email, password)
+            return userOrError
+        }
+
         
     }
 }
